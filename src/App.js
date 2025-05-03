@@ -1,6 +1,4 @@
 import React from "react";
-import { Card, CardContent } from "./components/ui/card";
-import { Button } from "./components/ui/button";
 import { Mail, Phone, Linkedin } from "lucide-react";
 
 export default function Portfolio() {
@@ -11,7 +9,9 @@ export default function Portfolio() {
         <h1 className="text-5xl font-bold text-blue-400">Inderjeet Singh</h1>
         <p className="text-xl text-gray-300 mt-2">Video Editor & Graphic Designer</p>
         <a href="#portfolio">
-          <Button className="mt-6 bg-blue-600 hover:bg-blue-700">View My Work</Button>
+          <button className="mt-6 bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded text-white font-medium">
+            View My Work
+          </button>
         </a>
       </section>
 
@@ -34,18 +34,16 @@ export default function Portfolio() {
             "https://www.youtube.com/watch?v=K9FuqFE886g",
             "https://youtu.be/Wax5CdIHwIc"
           ].map((link, idx) => (
-            <Card key={idx} className="bg-gray-700">
-              <CardContent className="p-0">
-                <iframe
-                  width="100%"
-                  height="250"
-                  src={link.replace("watch?v=", "embed/")}
-                  title={`Project ${idx + 1}`}
-                  allowFullScreen
-                  className="rounded"
-                ></iframe>
-              </CardContent>
-            </Card>
+            <div key={idx} className="bg-gray-700 rounded shadow p-2">
+              <iframe
+                width="100%"
+                height="250"
+                src={link.replace("watch?v=", "embed/")}
+                title={`Project ${idx + 1}`}
+                allowFullScreen
+                className="rounded"
+              ></iframe>
+            </div>
           ))}
         </div>
       </section>
@@ -65,14 +63,16 @@ export default function Portfolio() {
       {/* Resume Download */}
       <section className="text-center py-10">
         <a href="/Inderjeet's Resume.pdf" download>
-          <Button className="bg-green-600 hover:bg-green-700">Download Resume</Button>
+          <button className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded text-white font-medium">
+            Download Resume
+          </button>
         </a>
       </section>
 
       {/* Contact */}
       <section className="bg-gray-800 py-8 px-4 text-center">
         <h2 className="text-2xl text-blue-400 mb-4">Contact Me</h2>
-        <div className="flex justify-center gap-4 text-gray-300">
+        <div className="flex flex-col md:flex-row justify-center gap-4 text-gray-300">
           <div className="flex items-center gap-2">
             <Phone size={18} /> +91 9811398700
           </div>
@@ -81,7 +81,12 @@ export default function Portfolio() {
           </div>
           <div className="flex items-center gap-2">
             <Linkedin size={18} />
-            <a href="https://www.linkedin.com/in/inderjeet-singh-gill-5b2722333/" className="underline">
+            <a
+              href="https://www.linkedin.com/in/inderjeet-singh-gill-5b2722333/"
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
             </a>
           </div>
